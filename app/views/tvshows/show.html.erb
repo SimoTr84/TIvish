@@ -1,18 +1,16 @@
+<p>
+  <%= image_tag( @tvshow.image ) %>
+</p>
+
 <h1><%= @tvshow.title %></h1>
 
-<%= image_tag(@tvshow.image) %>
+<h4>- <%= @tvshow.year %> -</h4>
 
-<ul>
-
-  <li> Year: <%= @tvshow.year %></li>
-  <li> Plot: <%= @tvshow.plot %></li>
-
-</ul>
-
-<h3>Seasons</h3>
-
-<% @tvshow.season.each do |s| %>
   <p>
-    <%= link_to(s.title, s_path(s)) %>
+    <%= @tvshow.plot %>
   </p>
-<% end %>
+
+<div class="controls">
+  <%= link_to("Edit Tv Show", "/tvshows/#{@tvshow.id}/edit") %>
+  <%= link_to("Delete Tv Show", "/tvshows/#{@tvshow.id}", method: :delete, data: { confirm: "Are you sure?" }) %>
+</div>

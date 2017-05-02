@@ -1,21 +1,24 @@
-<h1><%= @tvshow.title %></h1>
-<h3>Edit</h3>
-<%= form_for @tvshow, url: "/tvshows/#{@tvshow.id}" do |f| %>
+<%= form_for @tvshow do |f| %>
   <p>
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, required: true %>
   </p>
+
   <p>
     <%= f.label :year %>
-    <%= f.text_field :year %>
+    <%= f.text_field :year, required: true %>
   </p>
+
   <p>
     <%= f.label :image %>
     <%= f.url_field :image %>
   </p>
+
   <p>
     <%= f.label :plot %>
     <%= f.text_field :plot %>
   </p>
+
   <%= f.submit %>
+  
 <% end %>

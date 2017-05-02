@@ -1,3 +1,3 @@
 class Episode < ApplicationRecord
-  belongs_to :seasons
+  belongs_to :season, optional: true
 end

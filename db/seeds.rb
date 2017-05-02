@@ -16,12 +16,12 @@ Based on the best-selling series of young-adult novels by Cecily von Ziegesar an
 # serie = Tvshow.create(title:"", year:"", image: "", plot:"")
 # serie = Tvshow.create(title:"", year:"", image: "", plot:"")
 # serie = Tvshow.create(title:"", year:"", image: "", plot:"")
-puts "Genre Count: #{Tvshow.count}"
+puts "Tv Show Count: #{Tvshow.count}"
 # ------------------------------------------------------------
 
 Season.destroy_all
 
-schitt1 = Season.create(count: "1", image: "", plot:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+schitt1 = Season.create(count: "1", image: "", plot:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.") #, tvshow_id: schitt.id to connect it to a tvshow later on
 schitt2 = Season.create(count: "2", image: "", plot:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
 schitt3 = Season.create(count: "3", image: "", plot:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
 
@@ -60,8 +60,8 @@ gossip4 = Season.create(count:"4", image:"http://fillmurray.com/600/300", plot:"
 gossip5 = Season.create(count:"5", image:"http://fillmurray.com/600/300", plot:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
 
 
-puts "Genre Count: #{Season.count}"
-puts "Genre Count: #{gossip2.count}"
+puts "Season Count: #{Season.count}"
+puts "This is Season #{Season.count} of #{Tvshow.name}"
 puts "Sex and The City Season #{city7.count} plot: #{city7.plot}"
 # ------------------------------------------------------------
 # ------------------------------------------------------------
