@@ -1,0 +1,18 @@
+<h1><%= @tvshow.title %></h1>
+
+<%= image_tag(@tvshow.image) %>
+
+<ul>
+
+  <li> Year: <%= @tvshow.year %></li>
+  <li> Plot: <%= @tvshow.plot %></li>
+
+</ul>
+
+<h3>Seasons</h3>
+
+<% @tvshow.season.each do |s| %>
+  <p>
+    <%= link_to(s.title, s_path(s)) %>
+  </p>
+<% end %>
