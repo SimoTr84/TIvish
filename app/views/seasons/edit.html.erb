@@ -1,2 +1,9 @@
-<h1>Seasons#edit</h1>
-<p>Find me in app/views/seasons/edit.html.erb</p>
+
+<h2><%= @season.tvshow.title %></h2>
+<h2>Season:<%= @season.count %></h2>
+
+<%= image_tag(@season.tvshow.image) %>
+
+<h3>Edit</h3>
+
+<%= render( partial: "form" ) %>

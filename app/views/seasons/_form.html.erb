@@ -1,0 +1,23 @@
+<%= form_for @season do |f| %>
+  <p>
+    <%= f.label :count %>
+    <%= f.text_field :count, required: true %>
+  </p>
+
+    <%= f.label :image %>
+    <%= f.url_field :image %>
+  </p>
+
+  <p>
+    <%= f.label :plot %>
+    <%= f.text_field :plot %>
+  </p>
+
+  <!-- <p>
+    <%#= f.label :tvshow_id %>
+    <%#= f.collection_select(:season, :tvshow_id, :id, :tvshow.title), required: true%>
+  </p> -->
+
+  <%= f.submit %>
+
+<% end %>

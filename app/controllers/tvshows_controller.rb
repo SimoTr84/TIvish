@@ -1,11 +1,14 @@
 class TvshowsController < ApplicationController
   def index
     @all_tvshows = Tvshow.all
+    # irb
+    # @all_seasons = Season.all
   end
 
   def show
     @tvshow = Tvshow.find_by(id: params['id'])
     # irb
+    @season = Season.find_by(tvshow_id: params['tvshow_id'])
   end
 
   def new
@@ -15,7 +18,7 @@ class TvshowsController < ApplicationController
   end
 
   def create
-    tvshow = Tvshow.create(tvshow_params())
+    tvshow = Tvshow.create(tvshow_strong_params())
     # tvshow.save
     redirect_to "/tvshows/#{tvshow.id}"
   end

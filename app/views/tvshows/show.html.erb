@@ -3,14 +3,22 @@
 </p>
 
 <h1><%= @tvshow.title %></h1>
-
 <h4>- <%= @tvshow.year %> -</h4>
+
+  <div class="controls">
+    <%= link_to("Edit Tv-Show", "/tvshows/#{@tvshow.id}/edit") %>
+    <%= link_to("Delete Tv-Show", "/tvshows/#{@tvshow.id}", method: :delete, data: { confirm: "Are you sure?" }) %>
+  </div>
 
   <p>
     <%= @tvshow.plot %>
   </p>
 
-<div class="controls">
-  <%= link_to("Edit Tv Show", "/tvshows/#{@tvshow.id}/edit") %>
-  <%= link_to("Delete Tv Show", "/tvshows/#{@tvshow.id}", method: :delete, data: { confirm: "Are you sure?" }) %>
-</div>
+<h3>Seasons</h3>
+<ul>
+  <% @tvshow.seasons.each do |season| %>
+    <li>
+      <%= link_to(season.count, "/seasons/#{season.id}") %>
+    </li>
+  <% end %>
+</ul>

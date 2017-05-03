@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20170502012912) do
 
   create_table "episodes", force: :cascade do |t|
     t.integer  "count"
+    t.integer  "season_id"
     t.text     "title"
     t.text     "image"
     t.text     "plot"
@@ -26,6 +27,7 @@ ActiveRecord::Schema.define(version: 20170502012912) do
 
   create_table "seasons", force: :cascade do |t|
     t.integer  "count"
+    t.integer  "tvshow_id"
     t.text     "image"
     t.text     "plot"
     t.datetime "created_at", null: false
