@@ -16,7 +16,7 @@
 <ul>
   <% @season.episodes.each do |episode| %>
     <li>
-      <%= link_to(episode.count, "/episodes/#{episode.id}", episode.title) %>
+      <%= link_to(episode.count, "/episodes/#{episode.id}") %>
     </li>
   <% end %>
 </ul>

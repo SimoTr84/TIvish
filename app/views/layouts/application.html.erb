@@ -11,12 +11,22 @@
   <body>
 
     <nav>
-        <div class="nav-wrapper black ">
-          <a href="#" class="brand-logo right ">Tivish</a>
-          <%= link_to("All Tv-Shows", "/tvshows") %>
-          <%= link_to("Add A Tv-Show", "/tvshows/new") %>
-        </div>
+      <div class="nav-wrapper black ">
+        <a href="#" class="brand-logo right ">Tivish</a>
 
+
+      <% if @current_user %>
+        <%= link_to("All Tv-Shows", "/tvshows") %>
+        <%= link_to("Add A Tv-Show", "/tvshows/new") %>
+        <%= link_to "Log Out", "/logout", method: :delete %>
+        <%= link_to @current_user.email, user_path(@current_user) %>
+        <%#= link_to "Edit Profile", edit_user_path(@current_user) %>
+      <% else %>
+        <%= link_to "Login", "/login" %>
+        <%= link_to "Sign Up", "/users/new" %>
+      <% end %>
+
+      </div>
     </nav>
 
     <!-- <nav>
