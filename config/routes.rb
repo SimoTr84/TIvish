@@ -8,6 +8,9 @@ delete '/logout' => 'session#destroy'
 
 resources :pages
 resources :tvshows
+get "/tvshows/:id/add" => 'tvshows#add'
+get "/tvshows/:id/remove" => 'tvshows#remove'
+
 resources :seasons
 resources :episodes
 resources :users

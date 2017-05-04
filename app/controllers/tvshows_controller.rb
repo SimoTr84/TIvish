@@ -6,10 +6,25 @@ class TvshowsController < ApplicationController
   end
 
   def show
-    # @tvshow = Tvshow.find_by(id: params['id'])
-    @tvshow = Tvshow.find_by(:all)
+    @tvshow = Tvshow.find_by(id: params['id'])
     # irb
     @season = Season.find_by(tvshow_id: params['tvshow_id'])
+  end
+
+  def add
+    # Find the right show
+    # Associate the @current_user with the shows users
+    # Redirect to somewhere else
+     tvshow = Tvshow.find_by(id: params['id'])
+     @current_user.tvshows  << tvshow
+     redirect_to "/users/show"
+    # raise "hell"
+  end
+
+  def remove
+    tvshow = Tvshow.find_by(id: params['id'])
+    @current_user.tvshows.delete( tvshow )
+    redirect_to "/users/show"
   end
 
   def new

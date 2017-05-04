@@ -5,9 +5,12 @@
 <h1><%= @tvshow.title %></h1>
 <h4>- <%= @tvshow.year %> -</h4>
 
+
   <div class="controls">
-    <%= link_to("Edit Tv-Show", "/tvshows/#{@tvshow.id}/edit") %>
-    <%= link_to("Delete Tv-Show", "/tvshows/#{@tvshow.id}", method: :delete, data: { confirm: "Are you sure?" }) %>
+    <%= link_to("Add #{@tvshow.title} to My Faves", "/tvshows/#{@tvshow.id}/add") %>
+      <br>
+
+
   </div>
 
   <p>

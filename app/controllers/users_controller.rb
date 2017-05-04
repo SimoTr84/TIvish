@@ -49,6 +49,7 @@ class UsersController < ApplicationController
   end
 
   def delete
+    @tvshow = Tvshow.find_by(id: params["id"])
   end
 
 

@@ -1,19 +1,31 @@
 <h1>Your faves</h1>
 
-<ul>
+  <a href="/tvshows">Add Tv-Show</a>
 
-  <%= @current_user.tvshows.each do |tvshow| %>
+  <br>
+<%#= link_to("Edit Tv-Show", "/tvshows/#{@tvshow.id}/edit") %>
 
-    <div>
+  <ul>
 
-      <li>
+    <% @current_user.tvshows.each do |tvshow| %>
 
-        <%= link_to(tvshow.title, "/tvshows/#{tvshow.id}") %>
+      <div>
 
-      </li>
+        <li>
 
-    </div>
+          <%= link_to("/tvshows/#{tvshow.id}") do %>
+            <%= image_tag tvshow.image %>
+            <p><%= tvshow.title %></p>
+          <% end %>
 
-  <% end %>
+              <br>
+            <%= link_to("Delete Tv Show", "/tvshows/#{tvshow.id}/remove") %>
+        </li>
 
-</ul>
+
+
+      </div>
+
+    <% end %>
+
+  </ul>
