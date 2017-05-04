@@ -1,17 +1,39 @@
+u1 = User.create(username: "Simo", email:"simone@ga.com", password: "chicken", password_confirmation: "chicken")
+
+u2 = User.create(username: "Bill", email:"bill@ga.com", password: "chicken", password_confirmation: "chicken")
+
+u3 = User.create(username: "Gill", email:"gill@ga.com", password: "chicken", password_confirmation: "chicken")
+
+p u1.password_digest
+p u2.password_digest
+p u3.password_digest
+
 Tvshow.destroy_all
 
 schitt = Tvshow.create(title:"Schitt's Creek", year:"2015", image: "https://img.yescdn.ru/2016/10/19/cover/22890e0785b140e9a8e40462c3082b44-schitts-creek-season-1.jpg", plot:"The series centers on a formerly filthy rich video store magnate Johnny Rose (Eugene Levy), his soap star wife Moira (Catherine O'Hara), and their two kids, über-hipster son David (Daniel Levy) and socialite daughter Alexis (Annie Murphy), who suddenly find themselves broke. They are forced to live in Schitt's Creek, a small depressing town they once bought as a joke.")
+schitt.users << u1 << u3
+schitt.save
 
 wife = Tvshow.create(title:"The Good Wife", year:"2009", image: "http://amazonadviser.com/files/2015/10/betv-the_good_wife_marquee.jpg", plot:"Alicia has been a good wife to her husband, a former state's attorney. After a very humiliating sex and corruption scandal, he is behind bars. She must now provide for her family and returns to work as a litigator in a law firm")
+wife.users << u1 << u2
+wife.save
 
 kimmy = Tvshow.create(title:"Unbreakable Kimmy Schmidt", year:"2015", image: "http://cdn.hercampus.com/s3fs-public/2016/05/02/unbreakable-kimmy-schmidt-poster.jpg", plot:"After Kimmy Shmidt is rescued from an underground bunker, having been captured by the leader of a cult, she finds her self in New York City embracing a totally new world with the help of her new friend and roommate Titus. There she finds a job as a nanny for a woman with a billionaire husband and a lot of problems.")
+kimmy.users << u1 << u2
+kimmy.save
 
 willgrace = Tvshow.create(title:"Will & Grace", year:"1998", image: "http://queerty-prodweb.s3.amazonaws.com/wp/docs/2014/01/banner-will-and-grace.jpg", plot:"Snappy hit about a straight woman and a gay man who are best friends. She's a decorator with a snippy, self-absorbed assistant; he's a lawyer with a flamboyant buddy who has trouble holding a job. The scripts are laced with pop-culture references and in-jokes, but what's best about this sitcom is the cast chemistry")
+willgrace.users << u2 << u3
+willgrace.save
 
 city = Tvshow.create(title:"Sex and the City", year:"1998", image: "http://images.zap2it.com/assets/p184689_b_h3_ah/sex-and-the-city.jpg", plot:"Four female New Yorkers gossip about their sex lives (or lack thereof) and find new ways to deal with being a woman in a big city in the '90s.")
+city.users << u1 << u3
+city.save
 
 gossip = Tvshow.create(title:"Gossip Girl", year:"2007", image: "https://secure.netflix.com/us/boxshots/tv_sdp_s/70143811.jpg", plot:"
 Based on the best-selling series of young-adult novels by Cecily von Ziegesar and executive produced by Josh Schwartz ('Chuck', 'The O.C.') and Stephanie Savage (The O.C.), 'Gossip Girl' is a one-hour drama based on the lives of privileged Manhattan prep school teens. Keeping track of the shifting friendships, jealousies and turmoil in this wealthy and complex world isn't easy, but it's what Gossip Girl does best.")
+gossip.users << u2
+gossip.save
 
 # serie = Tvshow.create(title:"", year:"", image: "", plot:"")
 # serie = Tvshow.create(title:"", year:"", image: "", plot:"")
@@ -21,7 +43,7 @@ puts "Tv Show Count: #{Tvshow.count}"
 
 Season.destroy_all
 
-schitt1 = Season.create(count: "1", tvshow_id: schitt.id, image: "http://fillmurray.com/800/300", plot:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.") #, 
+schitt1 = Season.create(count: "1", tvshow_id: schitt.id, image: "http://fillmurray.com/800/300", plot:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.") #,
 schitt2 = Season.create(count: "2", tvshow_id: schitt.id, image: "http://fillmurray.com/800/300", plot:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
 schitt3 = Season.create(count: "3", tvshow_id: schitt.id, image: "http://fillmurray.com/800/300", plot:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
 
@@ -61,7 +83,6 @@ gossip5 = Season.create(count:"5", tvshow_id: gossip.id,image:"http://fillmurray
 
 
 puts "Season Count: #{Season.count}"
-puts "This is Season #{Season.count} of #{Tvshow.name}"
 puts "Sex and The City Season #{city7.count} plot: #{city7.plot}"
 # ------------------------------------------------------------
 # ------------------------------------------------------------
@@ -120,3 +141,5 @@ kimmy1_10 = Episode.create(count:"10", season_id: kimmy1.id, title:"", image:"",
 kimmy1_11 = Episode.create(count:"11", season_id: kimmy1.id, title:"", image:"", plot:"")
 kimmy1_12 = Episode.create(count:"12", season_id: kimmy1.id, title:"", image:"", plot:"")
 kimmy1_13 = Episode.create(count:"13", season_id: kimmy1.id, title:"", image:"", plot:"")
+
+p kimmy.users

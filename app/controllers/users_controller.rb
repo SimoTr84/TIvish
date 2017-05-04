@@ -7,7 +7,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params["id"])
+    # @user = User.find_by(id: params["id"])
+    # irb
   end
 
   def new
@@ -18,16 +19,33 @@ class UsersController < ApplicationController
   @user = User.new( user_params )
       if @user.save
         session[:user_id] = @user.id
-        redirect_to "/tvshows"
+        redirect_to "/users/show"
       else
         render :new # Show them the Sign Up form again
       end
   end
 
   def edit
+    @user = User.find_by(id: params["id"])
+
+    # if @user.save
+      # redirect_to user_path( @current_user )
+    # else
+    #   render :new # Show them the Sign Up form again
+    # end
+  if params["id"] != @current_user
+    redirect_to user_path( @current_user )
+  end
+
   end
 
   def update
+    if @user.save
+
+      redirect_to user_path( @current_user )
+
+    end
+
   end
 
   def delete

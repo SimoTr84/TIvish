@@ -11,7 +11,7 @@ class SessionController < ApplicationController
     if user.present? && user.authenticate(password)
 
       session[:user_id] = user.id
-      redirect_to "/tvshows"
+      redirect_to "/users/show"
 
     else
       flash[:login_error] = "The password or email was incorrect"
@@ -22,6 +22,6 @@ class SessionController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to "/users"
+    redirect_to "/"
   end
 end

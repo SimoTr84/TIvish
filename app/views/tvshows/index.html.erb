@@ -1,9 +1,20 @@
 <h1>All Tv shows</h1>
 
-<ul>
+<ul class="container">
+
   <% @all_tvshows.each do |tvshow| %>
-    <li>
-      <%= link_to(tvshow.title, "/tvshows/#{tvshow.id}") %>
-    </li>
+
+    <div class="row">
+
+      <li class="col s4">
+
+        <%= link_to(tvshow.title, "/tvshows/#{tvshow.id}") %>
+
+      </li>
+
+    </div>
+
   <% end %>
+
 </ul>
+<!-- <img class="responsive-img" src="@tvshow.image"> -->

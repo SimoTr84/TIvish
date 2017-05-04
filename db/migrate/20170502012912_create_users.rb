@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.text :username
       t.text :email
       t.text :password_digest
+      # t.integer :tvshow_id
 
       t.timestamps
     end

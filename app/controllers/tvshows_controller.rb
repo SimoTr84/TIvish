@@ -6,7 +6,8 @@ class TvshowsController < ApplicationController
   end
 
   def show
-    @tvshow = Tvshow.find_by(id: params['id'])
+    # @tvshow = Tvshow.find_by(id: params['id'])
+    @tvshow = Tvshow.find_by(:all)
     # irb
     @season = Season.find_by(tvshow_id: params['tvshow_id'])
   end
