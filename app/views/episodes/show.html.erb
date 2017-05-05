@@ -1,13 +1,8 @@
 
-<h2></h2>
+
 <h3>Episode: <%= @episode.count %></h3>
 <%= image_tag(@episode.image) %>
 
   <p>
     <%= @episode.plot %>
   </p>
-
-<div class="controls">
-  <%= link_to("Edit Episode", "/episodes/#{@episode.id}/edit") %>
-  <%= link_to("Delete Episode", "/episodes/#{@episode.id}", method: :delete, data: { confirm: "Are you sure?" }) %>
-</div>

@@ -1,28 +1,31 @@
-<p>
-  <%= image_tag( @tvshow.image ) %>
-</p>
+<div class="container">
+  <p class="center">
+    <%= image_tag( @tvshow.image, { :class => "splashPage" } ) %>
+  </p>
 
-<h1><%= @tvshow.title %></h1>
-<h4>- <%= @tvshow.year %> -</h4>
+  <h1 class="center"><%= @tvshow.title %></h1>
+  <h4 class="center">-
+    <%= @tvshow.year %>
+    -</h4>
 
+  <h5 class="center"><%= link_to("Add #{@tvshow.title} to My Faves", "/tvshows/#{@tvshow.id}/add") %></h5>
+  <br>
 
-  <div class="controls">
-    <%= link_to("Add #{@tvshow.title} to My Faves", "/tvshows/#{@tvshow.id}/add") %>
-      <br>
-
-
-  </div>
-
-  <p>
+  <p class="flow-text">
     <%= @tvshow.plot %>
   </p>
 
-<h3>Seasons</h3>
-<ul class="container">
-  <% @tvshow.seasons.each do |season| %>
-  <div class="row">
-    <li class="col s3">
-      <%= link_to(season.count, "/seasons/#{season.id}") %>
-    </li>
-  <% end %>
-</ul>
+  <h3>Seasons</h3>
+  <ul>
+    <div class="row">
+      <% @tvshow.seasons.each do |season| %>
+      <li>
+        <div class="col s4">
+          <div class="image"><%= image_tag season.image %></div>
+          <%= link_to(season.count, "/seasons/#{season.id}") %>
+        </div>
+      </li>
+      <% end %>
+    </div>
+  </ul>
+</div>

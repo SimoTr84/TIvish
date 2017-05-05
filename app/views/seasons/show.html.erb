@@ -3,20 +3,20 @@
 <h2>Season: <%= @season.count %></h2>
 <%= image_tag(@season.image) %>
 
-  <p>
+  <p class="flow-text">
     <%= @season.plot %>
   </p>
 
-<div class="controls">
-  <%= link_to("Edit Season", "/seasons/#{@season.id}/edit") %>
-  <%= link_to("Delete Season", "/seasons/#{@season.id}", method: :delete, data: { confirm: "Are you sure?" }) %>
-</div>
-
 <h3>Episodes</h3>
 <ul>
-  <% @season.episodes.each do |episode| %>
-    <li>
-      <%= link_to(episode.count, "/episodes/#{episode.id}") %>
-    </li>
-  <% end %>
+  <div class="row">
+    <% @season.episodes.each do |episode| %>
+      <li>
+        <div class="col s4">
+          <div class="image"><%= image_tag(episode.image) %></div>
+          <%= link_to(episode.count, "/episodes/#{episode.id}") %>
+        </div>
+      </li>
+    <% end %>
+  </div>
 </ul>

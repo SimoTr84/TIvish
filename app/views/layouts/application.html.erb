@@ -3,48 +3,38 @@
   <head>
     <title>Tivish</title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
 
-    <nav class="nav-wrapper black right">
-      <a class="brand-logo right ">Tivish</a>
+    <nav class="nav-wrapper black">
+      <h3 class="brand-logo left ">Tivish</h3>
 
       <% if @current_user %>
+      <div class="text-align right">
+        <%= link_to "Edit Profile", "/users/edit" %>
+        <%= link_to "Log Out", "/logout", method: :delete %>
+      </div>
 
-        <%#= link_to("All Tv-Shows", "/tvshows") %>
-        <%#= link_to("Add A Tv-Show", "/tvshows/new") %>
+      <div class="text align center">
+        <%= link_to @current_user.username, user_path(@current_user) %>
+      </div>
 
-        <div class="nav-wrapper black">
+    <% else %>
 
-        <div class="text-align right">
-          <%= link_to "Log Out", "/logout", method: :delete %>
-        </div>
-          <%= link_to @current_user.username, user_path(@current_user) %>
-
-        <div class="text-align right">
-            <%= link_to "Edit Profile", "/users/edit" %>
-        </div>
-      <% else %>
-
+      <div class="text-align right">
         <%= link_to "Login", "/login" %>
         <%= link_to "Sign Up", "/users/new" %>
-      <% end %>
+      </div>
 
+      <% end %>
 
     </nav>
 
-    <!-- <nav>
-      <div class="input-field">
-        <input id="search" type="search" required>
-        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-        <i class="material-icons">close</i>
-      </div>
-    </nav> -->
-
     <%= yield %>
+
   </body>
+
 </html>
