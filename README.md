@@ -1,24 +1,36 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# README
+Overview of the idea and technologies used
+  - TiVish is an app that allows you to keep track of your favourite tv-shows
 
-Things you may want to cover:
+Overview of code structure
+  - Schema
+    . 4 tables (users, tv-shows, seasons, episodes
 
-* Ruby version
+Languages
+. Ruby
+. JavaScript - to handle the map data and the kendo widget (event date in create event)
+. CSS - Used to override some Bootstrap defaults
 
-* System dependencies
+Frameworks
+. Rails
+. Bootsrap
 
-* Configuration
+Gems
+. bcrypt
+. Postgresql
 
-* Database creation
+Features
+Login/Logout
+Authorisation - each login creates a session only the user can see its favourites.
 
-* Database initialization
+Bugs
+. Database limited to seed file, needs an API
+. Currently allowing to add a whole tv show only - rather that just parts of it
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+What's next
+. add Omdb API
+. add search
+. Social login & share
+. Ratings
